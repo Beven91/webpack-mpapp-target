@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TemplateAdapter apply.bytedance 1`] = `
+"
+        <view>
+          <template src=\\"a/b/c.ttml\\"/>
+          <template src=\\"a/b/c.wxml/>
+          <view>111</view>
+          <template src='c/d/e.ttml'></template><template src=\\"c/d/hello.ttml\\"></template>
+        </view>
+    "
+`;
+
+exports[`TemplateAdapter apply.bytedance 2`] = `231`;

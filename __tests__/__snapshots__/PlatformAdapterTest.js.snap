@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PlatformAdapter apply 1`] = `
+Object {
+  ".wxml[object Object]": Object {
+    "size": [Function],
+    "source": [Function],
+  },
+  ".wxss[object Object]": Object {
+    "size": [Function],
+    "source": [Function],
+  },
+  "assets": Object {
+    "a/d/hello.ttss": Object {
+      "source": [Function],
+    },
+  },
+}
+`;

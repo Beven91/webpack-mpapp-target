@@ -1,0 +1,43 @@
+{
+  "name": "webpack-mp-target",
+  "version": "1.0.0",
+  "description": "mini app webpack target",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Beven91/webpack-mpapp-target.git"
+  },
+  "keywords": [
+    "webpack",
+    "mp",
+    "mini",
+    "app",
+    "target"
+  ],
+  "author": "beven",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Beven91/webpack-mpapp-target/issues"
+  },
+  "homepage": "https://github.com/Beven91/webpack-mpapp-target#readme",
+  "devDependencies": {
+    "@babel/runtime": "^7.6.3",
+    "babel-jest": "^24.8.0",
+    "jest": "^24.9.0",
+    "metro-react-native-babel-preset": "^0.56.0"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "transformIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "moduleNameMapper": {
+      "webpack/lib/DefinePlugin": "<rootDir>/__mocks__/DefinePlugin.js",
+      "webpack/lib/Compiler": "<rootDir>/__mocks__/Compiler.js"
+    }
+  },
+  "dependencies": {}
+}

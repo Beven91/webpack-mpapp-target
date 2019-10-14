@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CssAdapter apply.bytedance 1`] = `
+"
+      @import \\"a/b/c.ttss\\" @import 'b/c/d.ttss'
+      .a{
+        color:red;
+      }
+      @import 'c/d/e.ttss'
+    "
+`;
+
+exports[`CssAdapter apply.bytedance 2`] = `117`;
