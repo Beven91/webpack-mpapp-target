@@ -9,6 +9,9 @@ module.exports = {
         }
         @import 'c/d/e.wxss'
         `;
+      },
+      size() {
+        return this.source().length;
       }
     },
     'a/d/hello.ttss': {
@@ -19,6 +22,9 @@ module.exports = {
           color:red;
         }
         `;
+      },
+      size() {
+        return this.source().length;
       }
     },
     'a/b/c.wxml': {
@@ -30,6 +36,9 @@ module.exports = {
           <template src='c/d/e.wxml'></template><template src="c/d/hello.wxml"></template>
         </view>
         `
+      },
+      size() {
+        return this.source().length;
       }
     }
   }

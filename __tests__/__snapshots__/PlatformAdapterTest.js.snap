@@ -2,18 +2,34 @@
 
 exports[`PlatformAdapter apply 1`] = `
 Object {
-  ".wxml[object Object]": Object {
-    "size": [Function],
-    "source": [Function],
+  "a/b/c.ttml": Object {
+    "size": 197,
+    "source": "
+        <view>
+          <template src=\\"a/b/c.ttml\\"/>
+          <view>111</view>
+          <template src='c/d/e.ttml'></template><template src=\\"c/d/hello.ttml\\"></template>
+        </view>
+        ",
   },
-  ".wxss[object Object]": Object {
-    "size": [Function],
-    "source": [Function],
+  "a/b/c.ttss": Object {
+    "size": 132,
+    "source": "
+         @import \\"a/b/c.ttss\\" @import 'b/c/d.ttss'
+        .a{
+          color:red;
+        }
+        @import 'c/d/e.ttss'
+        ",
   },
-  "assets": Object {
-    "a/d/hello.ttss": Object {
-      "source": [Function],
-    },
+  "a/d/hello.ttss": Object {
+    "size": 82,
+    "source": "
+         @import \\"a/b/c.ttss\\"
+        .a{
+          color:red;
+        }
+        ",
   },
 }
 `;

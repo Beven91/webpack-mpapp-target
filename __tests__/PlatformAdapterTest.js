@@ -11,17 +11,22 @@ import complilation from '../__mocks__/complication';
 
 describe('PlatformAdapter', () => {
   test('apply', () => {
-    const callback = jest.fn();
-
     const mockCompiler = new MockCompiler();
     const compiler = new AppCompiler(mockCompiler, { target: 'bytedance' });
 
-    const adapter = new PlatformAdapter(complilation, callback, compiler);
+    const adapter = new PlatformAdapter(complilation, compiler);
 
+    adapter.transform();
+
+    const obj = Object.keys(complilation.assets).reduce((map, k) => {
+      const asset = complilation.assets[k];
+      map[k] = {
+        source: asset.source(),
+        size: asset.size(),
+      }
+      return map;
+    }, {})
     // 匹配complilation镜像
-    expect(complilation).toMatchSnapshot();
-
-    // 断言:callback 必须校验
-    expect(callback).toHaveBeenCalled();
+    expect(obj).toMatchSnapshot();
   });
 });

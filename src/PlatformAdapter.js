@@ -3,7 +3,7 @@ const CssAdapter = require('./adapters/CssAdapter');
 const TemplateAdapter = require('./adapters/TemplateAdapter');
 
 module.exports = class PlatformAdapter {
-  constructor(compilation, callback, context) {
+  constructor(compilation, context) {
     this.compilation = compilation;
     this.compiler = context.compiler;
     this.from = context.fromPlatform;
@@ -12,8 +12,6 @@ module.exports = class PlatformAdapter {
       new CssAdapter(this.from, this.target),
       new TemplateAdapter(this.from, this.target)
     ]
-    this.transform();
-    callback();
   }
 
   transform() {
@@ -22,20 +20,20 @@ module.exports = class PlatformAdapter {
     const assetKeys = Object.keys(allAssets);
     assetKeys
       .forEach((assetKey) => {
-        const ext = path.extname(assetKey).toLowerCase();
-        const basename = path.extname(assetKey);
+        const info = path.parse(assetKey);
+        const ext = info.ext;
+        const basename = path.join(info.root, info.dir, info.name).replace(/\\/g, '/');
         const asset = compilation.assets[assetKey];
         const adapter = this.adapters.find((adapter) => adapter.fromExt === ext);
         if (adapter) {
-          const newAssetKey = basename + adapter.target;
+          const newAssetKey = basename + adapter.targetExt;
           // 处理asset
           adapter.apply(asset);
           // 删除原有的asset
           delete compilation.assets[assetKey];
           // 重新设置asset
-          compilation[newAssetKey] = asset;
+          compilation.assets[newAssetKey] = asset;
         }
-      })
+      });
   }
 }
-

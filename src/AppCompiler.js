@@ -31,7 +31,9 @@ module.exports = class MpAppCompiler {
   initialize() {
     const compiler = this.compiler;
     compiler.plugin('emit', (compilation, callback) => {
-      return new PlatformAdapter(compilation, callback, this)
+      const adapter = new PlatformAdapter(compilation, this);
+      adapter.transform();
+      callback();
     });
     compiler.apply(
       // 将全局变量进行重命名
