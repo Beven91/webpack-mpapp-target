@@ -1,6 +1,6 @@
 {
   "name": "webpack-mpapp-target",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "mini app webpack target",
   "main": "src/index.js",
   "scripts": {
